@@ -21,22 +21,32 @@
     <main>
         <!-- Form section -->
         <section>
-            <div class="bg-red-200 w-80 mx-auto my-5 rounded-lg text-center py-8 shadow-2xl">
+            <div class="bg-red-200 w-80 mx-auto my-5 rounded-lg text-center py-8 shadow-lg">
                 <h3 class="text-2xl p-2 font-semibold">Enter Your Birth Date</h3>
-                <input id="birth-date" class="text-2xl font-semibold my-3 p-3 rounded-lg" type="date">
-                <button id="calculate-btn"
-                    class="bg-slate-900 text-red-400 text-2xl mt-2 mb-4 pt-1 pb-2 px-2 rounded-lg font-semibold">Calculate</button>
+                <input id="date-input" class="text-2xl font-semibold my-3 p-3 rounded-lg" type="date">
+                <button onclick="ageCalculate()"
+                    class="bg-slate-900 text-red-400 text-2xl mt-5 pt-1 pb-2 w-32 rounded-lg font-semibold mr-2">Calculate
+                </button>
+                <button onclick="clear()"
+                    class="bg-slate-900 text-red-400 text-2xl mt-5 pt-1 pb-2 w-32 rounded-lg font-semibold ml-2">Refresh
+                </button>
             </div>
         </section>
         <!-- Result section -->
-        <section class="">
-            <h3 class="text-xl text-center mb-5 font-semibold">Today is: <span></span></h3>
-            <div class="bg-slate-900 p-5">
-                <h1 class="text-3xl pb-4 text-white text-center font-semibold p">You are now</h1>
-                <div class="text-center">
+        <section id="result-section" class="hidden">
+            <h3 class="text-xl text-center mb-5 font-semibold">Today is: <span id="current-date"></span></h3>
+            <div class="bg-slate-900 p-2">
+                <h3 class="text-xl text-white text-center font-semibold p">
+                    You have born on <span id="birth-day" class="text-red-400">Tuesday</span>
+                </h3>
+                <h3 class="text-3xl mt-3 text-white text-center font-semibold p">
+                    Now You Are
+                </h3>
+
+                <div class="text-center mt-6 pb-10">
                     <div
-                        class="inline-block shadow-md shadow-red-400 my-4 mx-5 w-28 h-24 bg-red-200 rounded-full pt-3 px-4 text-center font-semibold text-slate-700">
-                        <span class="text-3xl" id="years">
+                        class="inline-block font-semibold mx-5 text-red-400 w-28 shadow-lg shadow-red-300 rounded-lg my-3 py-3">
+                        <span id="years" class="text-3xl" id="years">
                             -
                         </span>
                         <p class="text-xl">
@@ -44,8 +54,8 @@
                         </p>
                     </div>
                     <div
-                        class="inline-block shadow-md shadow-red-400 my-4 mx-5 w-28 h-24 bg-red-200 rounded-full pt-3 px-4 text-center font-semibold text-slate-700">
-                        <span class="text-3xl" id="months">
+                        class="inline-block font-semibold mx-5 text-red-400 w-28 shadow-lg shadow-red-300 rounded-lg my-3 py-3">
+                        <span id="months" class="text-3xl" id="months">
                             -
                         </span>
                         <p class="text-xl">
@@ -53,8 +63,8 @@
                         </p>
                     </div>
                     <div
-                        class="inline-block shadow-md shadow-red-400 my-4 mx-5 w-28 h-24 bg-red-200 rounded-full pt-3 px-4 text-center font-semibold text-slate-700">
-                        <span class="text-3xl" id="days">
+                        class="inline-block text-red-400 font-semibold mx-5 w-28 shadow-lg shadow-red-300 rounded-lg my-3 py-3">
+                        <span id="days" class="text-3xl" id="days">
                             -
                         </span>
                         <p class="text-xl">
