@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Age Calculator Created By Hasan</title>
     <!-- Tailwind extension -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- custom style -->
@@ -21,9 +21,17 @@
     <main>
         <!-- Form section -->
         <section>
-            <div class="bg-red-200 w-80 mx-auto mt-2 mb-5 rounded-lg text-center pt-4 pb-8 shadow-lg">
-                <h3 class="text-2xl p-2 font-semibold">Enter Your Birth Date</h3>
-                <input id="date-input" class="text-2xl font-semibold my-3 p-3 rounded-lg" type="date">
+            <div class="bg-red-200 w-80 mx-auto mt-2 mb-5 rounded-lg text-center py-4 shadow-lg">
+                <h3 class="text-2xl font-semibold">Enter Your Birth Date</h3>
+                <div>
+                    <input id="year-input" type="text" placeholder="Birth Year"
+                        class="text-xl rounded-lg p-1 text-center mt-3 mb-1 text-pink-700 font-bold">
+                    <input id="month-input" type="text" placeholder="Birth Month"
+                        class="text-xl rounded-lg p-1 text-center my-1 text-pink-700 font-bold">
+                    <input id="date-input" type="text" placeholder="Birth Date"
+                        class="text-xl rounded-lg p-1 text-center mt-1 text-pink-700 font-bold">
+                </div>
+                <!-- <input id="date-input" class="text-2xl font-semibold my-3 p-3 rounded-lg" type="date"> -->
                 <button onclick="ageCalculate()"
                     class="bg-slate-900 text-red-400 text-2xl mt-5 pt-1 pb-2 w-32 rounded-lg font-semibold mr-2">Calculate
                 </button>

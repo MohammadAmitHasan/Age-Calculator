@@ -2,10 +2,16 @@ const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 function ageCalculate() {
     // Take user input
-    let inputDate = new Date(document.getElementById("date-input").value);
+    // let inputDate = new Date(document.getElementById("date-input").value);
+    const yearInput = document.getElementById('year-input');
+    const monthInput = document.getElementById('month-input');
+    const dateInput = document.getElementById('date-input');
+    // Get the birth date
+    let inputDate = new Date(yearInput.value + '/' + monthInput.value + '/' + dateInput.value);
+
     // Input validation
     if (inputDate == 'Invalid Date') {
-        alert('Please, Provide date properly');
+        alert('Only numbers are allowed. Please, Provide Year, month, and date properly');
     }
     else {
         // Get current date
@@ -63,6 +69,7 @@ function ageCalculate() {
         displayResult(birthDate, birthMonth, birthYear);
         document.getElementById('result-section').style.display = 'block';
     }
+    clearInputField();
 
 }
 
@@ -85,6 +92,15 @@ function leapChecker(year) {
 
 // Clear the screen
 document.getElementById('refresh').addEventListener('click', function () {
-    document.getElementById("date-input").value = '';
+    // document.getElementById("date-input").value = '';
     document.getElementById('result-section').style.display = 'none';
+    clearInputField();
 });
+
+// clear input field function
+function clearInputField() {
+    // Clear input fields
+    document.getElementById('year-input').value = '';
+    document.getElementById('month-input').value = '';
+    document.getElementById('date-input').value = '';
+}
