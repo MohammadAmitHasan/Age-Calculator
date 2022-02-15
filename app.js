@@ -1,27 +1,7 @@
-// function calculateAge(birthDateInput) {
-//     const currentDate = new Date;
-//     const birthDate = new Date(birthDateInput);
-//     const age = currentDate - birthDate;
-//     const monthAge = age / 1000 / 60 / 60 / 24 / 365;
-//     console.log(monthAge);
-//     console.log(age / 31557600000);
-//     // 31557600000
-// }
-// document.getElementById('calculate-btn').addEventListener('click', function () {
-//     const birthDate = document.getElementById('birth-date');
-//     if (birthDate.value != '') {
-//         calculateAge(birthDate.value);
-//     }
-//     else {
-//         alert('Please.! Provide the birth date properly')
-//     }
-// });
-
-
-// Testing
 const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 function ageCalculate() {
+    // Take user input
     let inputDate = new Date(document.getElementById("date-input").value);
     // Input validation
     if (inputDate == 'Invalid Date') {
@@ -32,6 +12,9 @@ function ageCalculate() {
         let today = new Date();
         // Display current date
         document.getElementById('current-date').innerText = today.toDateString();
+
+        // Display the day of birth
+        document.getElementById('birth-day').innerText = inputDate.toLocaleDateString(undefined, { weekday: 'long' });
 
         let birthMonth, birthDate, birthYear;
         let birthDetails = {
@@ -83,12 +66,14 @@ function ageCalculate() {
 
 }
 
+// Display the results
 function displayResult(bDate, bMonth, bYear) {
     document.getElementById("years").textContent = bYear;
     document.getElementById("months").textContent = bMonth;
     document.getElementById("days").textContent = bDate;
 }
 
+// Check leap year
 function leapChecker(year) {
     if (year % 4 == 0 || (year % 100 == 0 && year % 400 == 0)) {
         months[1] = 29;
@@ -97,3 +82,9 @@ function leapChecker(year) {
         months[1] = 28;
     }
 }
+
+// Clear the screen
+document.getElementById('refresh').addEventListener('click', function () {
+    document.getElementById("date-input").value = '';
+    document.getElementById('result-section').style.display = 'none';
+});
